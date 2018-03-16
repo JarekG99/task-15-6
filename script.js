@@ -18,8 +18,6 @@ class Stopwatch {
         this.display.innerText = this.format(this.times);
     }
 
-
-
     format(times) {
         return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
     }
@@ -34,7 +32,6 @@ class Stopwatch {
     if (!this.running) return;
     this.calculate();
     this.print();
-
     }
 
     calculate() {
@@ -55,14 +52,16 @@ class Stopwatch {
     }
 
     get() {
+      let time = document.getElementsByClassName('stopwatch')[0].innerHTML;
 
-      let time = getElementsByClassName('stopwatch').innerHTML;
-      console.log(time);
+      var span =document.createElement('div');
+      span.innerHTML = time;
+      document.getElementsByClassName('results')[0].appendChild(span);
+
       this.reset();
       this.print();
 
     }
-
 }
 
 

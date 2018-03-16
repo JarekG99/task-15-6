@@ -74,9 +74,12 @@ var Stopwatch = function () {
     }, {
         key: 'get',
         value: function get() {
+            var time = document.getElementsByClassName('stopwatch')[0].innerHTML;
 
-            var time = getElementsByClassName('stopwatch').innerHTML;
-            console.log(time);
+            var span = document.createElement('div');
+            span.innerHTML = time;
+            document.getElementsByClassName('results')[0].appendChild(span);
+
             this.reset();
             this.print();
         }
